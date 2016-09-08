@@ -1,0 +1,3 @@
+---
+# defaults file for opdk-setup-validate
+apigee_validate_cmd: 'bash {{ apigee_service }} apigee-validate'
