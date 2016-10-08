@@ -1,5 +1,5 @@
 ---
-# tasks file for opdk-setup-validate-cleanup
+# tasks file for apigee-opdk-setup-validate-cleanup
 
 - name: Validate OPDK Installation for version {{ opdk_version }}
   ignore_errors: yes

@@ -13,21 +13,21 @@ separately. It is assumed that files containing credentials are stored in the ~/
 Role Variables
 --------------
 
-Default values for variables are provided by the role opdk-setup-default-settings.
+Default values for variables are provided by the role apigee-opdk-setup-default-settings.
 
 Dependencies
 ------------
 
 This role depends on the following roles:
 
-* opdk-setup-default-settings
+* apigee-opdk-setup-default-settings
 
 Example Playbook
 ----------------
 
     - hosts: servers
       roles:
-         - { role: opdk-setup-validate-cleanup }
+         - { role: apigee-opdk-setup-validate-cleanup }
 
 License
 -------

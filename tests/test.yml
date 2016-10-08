@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - opdk-setup-validate-cleanup
+    - apigee-opdk-setup-validate-cleanup
