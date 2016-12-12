@@ -19,3 +19,7 @@
     responses:
       '(?i) y/n: ': 'y'
   when: opdk_version | version_compare('4.16.05', '>')
+
+- name: Restart Edge Message Processor
+  ignore_errors: yes
+  shell: '{{ apigee_service }} edge-message-processor restart'
