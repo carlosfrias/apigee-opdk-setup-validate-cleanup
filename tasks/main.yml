@@ -3,23 +3,23 @@
 
 - name: Validate OPDK Installation for version {{ opdk_version }}
   ignore_errors: yes
-  shell: '{{ apigee_service }} apigee-validate clean -f {{ apigee_validate_config_file }}'
+  shell: '/opt/apigee/apigee-service/bin/apigee-service apigee-validate clean -f {{ apigee_validate_config_file }}'
   when: opdk_version | version_compare('4.16.01', '==')
 
 - name: Validate OPDK Installation for version {{ opdk_version }}
   expect:
-    command: '{{ apigee_service }} apigee-validate clean -f {{ apigee_validate_config_file }}'
+    command: '/opt/apigee/apigee-service/bin/apigee-service apigee-validate clean -f {{ apigee_validate_config_file }}'
     responses:
       '(?i)Press a key:': '\n'
   when: opdk_version | version_compare('4.16.05', '==')
 
 - name: Validate OPDK Installation for version {{ opdk_version }}
   expect:
-    command: '{{ apigee_service }} apigee-validate clean -f {{ apigee_validate_config_file }}'
+    command: '/opt/apigee/apigee-service/bin/apigee-service apigee-validate clean -f {{ apigee_validate_config_file }}'
     responses:
       '(?i) y/n: ': 'y'
   when: opdk_version | version_compare('4.16.05', '>')
 
 - name: Restart Edge Message Processor
   ignore_errors: yes
-  shell: '{{ apigee_service }} edge-message-processor restart'
+  shell: '/opt/apigee/apigee-service/bin/apigee-service edge-message-processor restart'
