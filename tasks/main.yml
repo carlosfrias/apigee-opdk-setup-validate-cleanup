@@ -20,6 +20,11 @@
       '(?i) y/n: ': 'y'
   when: opdk_version | version_compare('4.16.05', '>')
 
+- name: Confirm existence of edge-message-processor
+  state:
+    path: "{{ apigee_home }}/edge-message-processor"
+  register: mp_exists
+
 - name: Restart Edge Message Processor
   shell: '/opt/apigee/apigee-service/bin/apigee-service edge-message-processor restart'
-  removes: "{{ apigee_home }}/edge-message-processor"
+  when: mp_exists.stat.exists
