@@ -21,7 +21,7 @@
   when: opdk_version | version_compare('4.16.05', '>')
 
 - name: Confirm existence of edge-message-processor
-  state:
+  stat:
     path: "{{ apigee_home }}/edge-message-processor"
   register: mp_exists
 
