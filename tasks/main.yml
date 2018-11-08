@@ -3,7 +3,7 @@
 - name: Validate OPDK Installation for version {{ opdk_version }}
   ignore_errors: yes
   shell: '/opt/apigee/apigee-service/bin/apigee-service apigee-validate clean -f {{ apigee_validate_config_file }}'
-  when: opdk_version is version_compare('4.16.01', '==')
+  when: opdk_version is version_compare('4.16.01', '>=')
 
 - name: Confirm existence of edge-message-processor
   stat:
