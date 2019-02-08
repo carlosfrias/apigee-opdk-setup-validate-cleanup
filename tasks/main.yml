@@ -10,6 +10,14 @@
     path: "{{ apigee_home }}/edge-message-processor"
   register: mp_exists
 
-- name: Restart Edge Message Processor
-  shell: '/opt/apigee/apigee-service/bin/apigee-service edge-message-processor restart'
-  when: mp_exists.stat.exists
+- name: Stop Message Processor
+  import:
+    name: 'apigee-opdk-stop-components'
+  vars:
+    component_name: 'edge-message-processor'
+
+- name: Start Message Processor
+  import:
+    name: 'apigee-opdk-start-components'
+  vars:
+    component_name: 'edge-message-processor'
